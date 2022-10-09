@@ -47,7 +47,6 @@ const Home = () => {
   const [messages, setMessages] = useState();
   const [photoView, setPhotoView] = useState();
   const [photoDisplay, setPhotoDisplay] = useState(false);
-  const [error, setError] = useState(false);
   const [android, setAndroid] = useState(false);
   const [searchStart, setSearchStart] = useState(false);
   useEffect(() => {
@@ -303,7 +302,6 @@ const Home = () => {
                     </div>
                   </div>
                 )}
-                {error && <span className="errorMessage">No User Exist!</span>}
                 {Object.entries(chats)
                   ?.sort((a, b) => b[1].date - a[1].date)
                   .map((chat) => {
