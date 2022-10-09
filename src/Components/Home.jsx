@@ -236,7 +236,7 @@ const Home = () => {
           }
         >
           <div className="chatNavbar" id="chatNavbar">
-            <div className="chatNavTitle">
+            <div className="chatNavTitle" onClick={() => navigate("/home")}>
               Chatting App By Krish <small id="beta">(Beta Version)</small>
             </div>
             <div className="chatNavTitleAndroid">

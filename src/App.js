@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import UserInfo from "./Components/UserInfo";
 import Setting from "./Components/Setting";
 import Feedback from "./Components/Feedback";
+import Error from "./Components/Error";
 const App = () => {
   return (
     <>
@@ -16,6 +17,7 @@ const App = () => {
           <Route path="/user-details" element={<UserInfo />} />
           <Route path="/settings" element={<Setting />} />
           <Route path="/feedback" element={<Feedback />} />
+          <Route path="/*" element={<Error />} />
         </Routes>
       </Router>
     </>

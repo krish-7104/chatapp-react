@@ -21,6 +21,7 @@
   font-weight: 600;
   font-size: 18px;
   letter-spacing: 1px;
+  cursor: pointer;
 }
 .chatNavbar {
   background-color: var(--primary-light);
@@ -438,7 +439,7 @@
   cursor: pointer;
 }
 #beta {
-  font-size: 10px;
+  font-size: 12px;
 }
 @media only screen and (max-width: 800px) {
   .noSelectedChat {
@@ -455,11 +456,11 @@
     flex-direction: column;
   }
   .chatViewNavbar {
-    min-height: 10vh;
+    min-height: 8vh;
   }
   .chatViewSection {
     width: 100vh;
-    min-height: 82vh;
+    min-height: 75vh;
   }
   .chatCard {
     width: 100vw;
@@ -486,7 +487,10 @@
     font-size: 14px;
   }
   .chattingSection {
-    min-height: 82vh;
+    min-height: 75vh;
     margin: 0px;
+  }
+  .closeDisplayView {
+    margin-bottom: 20px;
   }
 }
