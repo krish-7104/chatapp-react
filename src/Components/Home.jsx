@@ -239,7 +239,10 @@ const Home = () => {
             <div className="chatNavTitle" onClick={() => navigate("/home")}>
               Chatting App By Krish <small id="beta">(Beta Version)</small>
             </div>
-            <div className="chatNavTitleAndroid">
+            <div
+              className="chatNavTitleAndroid"
+              onClick={() => navigate("/home")}
+            >
               Chatting App <small id="beta">Beta Version</small>
             </div>
             <div className="navProfileView" id="navProfileView">
