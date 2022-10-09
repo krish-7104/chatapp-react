@@ -32,7 +32,7 @@ const Home = () => {
   const [chats, setChats] = useState([]);
   const [search, setSearch] = useState("");
   const [searchFriend, setSearchFriend] = useState({
-    name: "searching...",
+    name: "",
     photo: "",
     uid: "",
     email: "",
@@ -49,7 +49,7 @@ const Home = () => {
   const [photoDisplay, setPhotoDisplay] = useState(false);
   const [error, setError] = useState(false);
   const [android, setAndroid] = useState(false);
-
+  const [searchStart, setSearchStart] = useState(false);
   useEffect(() => {
     const getData = () => {
       const unsub = onSnapshot(doc(db, "userChats", userDetails.uid), (doc) => {
@@ -101,26 +101,19 @@ const Home = () => {
   };
 
   const handlerSearch = async () => {
-    if (search !== userDetails.uid.slice(0, 6)) {
-      const q = query(
-        collection(db, "users"),
-        where("uniqueCode", "==", search)
-      );
-      try {
-        const querySnapshot = await getDocs(q);
-        querySnapshot.forEach((doc) => {
-          setSearchFriend({
-            name: doc.data().username,
-            email: doc.data().email,
-            photo: doc.data().photo,
-            uid: doc.data().UID,
-          });
-        });
-      } catch (err) {
-        setError(true);
-        alert(err);
-      }
-    }
+    setSearchStart(true);
+    const q = query(collection(db, "users"), where("uniqueCode", "==", search));
+    console.log(q);
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      console.log(querySnapshot);
+      setSearchFriend({
+        name: doc.data().username,
+        email: doc.data().email,
+        photo: doc.data().photo,
+        uid: doc.data().UID,
+      });
+    });
   };
 
   const addFriendToListHandler = async () => {
@@ -152,6 +145,7 @@ const Home = () => {
         });
       }
       setSearchFriend("");
+      setSearchStart(false);
       setSearch("");
     } catch (error) {
       console.log(error);
@@ -181,6 +175,7 @@ const Home = () => {
   };
   const selectFriendHandler = (data) => {
     setSelectedFrnd(data);
+    setMessages("");
     if (android) {
       let cont1 = document.getElementById("friendListSection");
       cont1.style.display = "none";
@@ -237,8 +232,12 @@ const Home = () => {
           }
         >
           <div className="chatNavbar">
-            <div className="chatNavTitle">Chatting App By Krish</div>
-            <div className="chatNavTitleAndroid">Chatting App</div>
+            <div className="chatNavTitle">
+              Chatting App By Krish <small id="beta">(Beta Version)</small>
+            </div>
+            <div className="chatNavTitleAndroid">
+              Chatting App <small id="beta">Beta Version</small>
+            </div>
             <div className="navProfileView">
               <div className="navDivider"></div>
               <div className="navProfileName">
@@ -277,7 +276,7 @@ const Home = () => {
               </div>
               <span className="friendListSectionSeperator"></span>
               <div className="friendListView" id="friendListView">
-                {search !== "" && (
+                {searchStart === true && (
                   <div>
                     <p className="searchText">Search Result</p>
                     <div
