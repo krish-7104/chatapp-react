@@ -12,9 +12,9 @@ import { AiOutlineClose } from "react-icons/ai";
 const UserInfo = () => {
   const navigate = useNavigate();
   const [file, setFile] = useState();
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState("Loading..");
   const [profile, setProfile] = useState("");
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState("Loading..");
   const [UID, setUID] = useState("");
   const [uploadStatus, setUploadStatus] = useState("");
   const [changeNameCount, setChangeNameCount] = useState(false);

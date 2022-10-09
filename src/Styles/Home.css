@@ -462,8 +462,7 @@
     border-radius: 0;
   }
   .chattingSection {
-    min-height: 80vh;
-    margin: 10px;
+    min-height: 75vh;
   }
   .sendMessageSection {
     align-self: flex-end;
