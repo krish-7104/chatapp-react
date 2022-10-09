@@ -116,6 +116,7 @@ const Home = () => {
   };
 
   const addFriendToListHandler = async () => {
+    setSearchStart(false);
     let combinedId =
       userDetails.uid > searchFriend.uid
         ? userDetails.uid + searchFriend.uid
