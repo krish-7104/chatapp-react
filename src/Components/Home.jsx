@@ -183,6 +183,8 @@ const Home = () => {
       cont3.style.display = "none";
       let cont2 = document.getElementById("chatViewSection");
       cont2.style.display = "block";
+      let cont4 = document.getElementById("chatNavbar");
+      cont4.style.display = "none";
     }
   };
 
@@ -200,6 +202,8 @@ const Home = () => {
     cont3.style.display = "block";
     let cont2 = document.getElementById("chatViewSection");
     cont2.style.display = "none";
+    let cont4 = document.getElementById("chatNavbar");
+    cont4.style.display = "flex";
   };
   const handleKeyboardClickSearch = (e) => {
     e.code === "Enter" && handlerSearch();
@@ -231,14 +235,14 @@ const Home = () => {
               : "chatCard animate__animated animate__bounceInDown"
           }
         >
-          <div className="chatNavbar">
+          <div className="chatNavbar" id="chatNavbar">
             <div className="chatNavTitle">
               Chatting App By Krish <small id="beta">(Beta Version)</small>
             </div>
             <div className="chatNavTitleAndroid">
               Chatting App <small id="beta">Beta Version</small>
             </div>
-            <div className="navProfileView">
+            <div className="navProfileView" id="navProfileView">
               <div className="navDivider"></div>
               <div className="navProfileName">
                 {userDetails.name !== null
@@ -369,7 +373,9 @@ const Home = () => {
                       onClick={imageFullViewHandler}
                     />
                     <p className="chatViewFrndName">
-                      {selectedFrnd.displayName}
+                      {android
+                        ? selectedFrnd.displayName.split(" ")[0]
+                        : selectedFrnd.displayName}
                     </p>
                     <p
                       title="Friend's Unique Code"

@@ -454,8 +454,12 @@
     display: flex;
     flex-direction: column;
   }
+  .chatViewNavbar {
+    min-height: 10vh;
+  }
   .chatViewSection {
     width: 100vh;
+    min-height: 82vh;
   }
   .chatCard {
     width: 100vw;
@@ -465,11 +469,10 @@
   .chatNavbar {
     border-radius: 0;
   }
-  .chattingSection {
-    min-height: 75vh;
-  }
   .sendMessageSection {
-    align-self: flex-end;
+    position: relative;
+    bottom: 0;
+    min-height: 8vh;
   }
   .uniqueCodeView {
     bottom: 0px;
@@ -478,5 +481,12 @@
     max-width: 70%;
     border-radius: 4px;
     border: 4px solid var(--primary-light);
+  }
+  .chatViewFrndName {
+    font-size: 14px;
+  }
+  .chattingSection {
+    min-height: 82vh;
+    margin: 0px;
   }
 }
