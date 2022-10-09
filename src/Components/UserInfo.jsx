@@ -13,7 +13,9 @@ const UserInfo = () => {
   const navigate = useNavigate();
   const [file, setFile] = useState();
   const [username, setUsername] = useState("Loading..");
-  const [profile, setProfile] = useState("");
+  const [profile, setProfile] = useState(
+    "https://firebasestorage.googleapis.com/v0/b/chatappbykrish.appspot.com/o/Assets%2Fno%20profile.png?alt=media&token=93d37c13-7c77-4aa2-b5e1-c372b9e4fc34"
+  );
   const [email, setEmail] = useState("Loading..");
   const [UID, setUID] = useState("");
   const [uploadStatus, setUploadStatus] = useState("");
@@ -133,7 +135,7 @@ const UserInfo = () => {
               <img
                 className="userProfile"
                 src={
-                  profile === null
+                  profile === null || profile === ""
                     ? "https://firebasestorage.googleapis.com/v0/b/chatappbykrish.appspot.com/o/Assets%2Fno%20profile.png?alt=media&token=93d37c13-7c77-4aa2-b5e1-c372b9e4fc34"
                     : profile
                 }

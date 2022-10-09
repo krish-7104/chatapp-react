@@ -32,7 +32,7 @@ const Home = () => {
   const [chats, setChats] = useState([]);
   const [search, setSearch] = useState("");
   const [searchFriend, setSearchFriend] = useState({
-    name: "",
+    name: "searching...",
     photo: "",
     uid: "",
     email: "",
