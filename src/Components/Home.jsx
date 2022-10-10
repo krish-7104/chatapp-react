@@ -100,19 +100,24 @@ const Home = () => {
   };
 
   const handlerSearch = async () => {
-    setSearchStart(true);
-    const q = query(collection(db, "users"), where("uniqueCode", "==", search));
-    console.log(q);
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-      console.log(querySnapshot);
-      setSearchFriend({
-        name: doc.data().username,
-        email: doc.data().email,
-        photo: doc.data().photo,
-        uid: doc.data().UID,
+    if (search !== userDetails.uid.slice(0, 6)) {
+      setSearchStart(true);
+      const q = query(
+        collection(db, "users"),
+        where("uniqueCode", "==", search)
+      );
+      console.log(q);
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        console.log(querySnapshot);
+        setSearchFriend({
+          name: doc.data().username,
+          email: doc.data().email,
+          photo: doc.data().photo,
+          uid: doc.data().UID,
+        });
       });
-    });
+    }
   };
 
   const addFriendToListHandler = async () => {
