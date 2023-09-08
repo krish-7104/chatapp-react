@@ -86,7 +86,7 @@ const UserInfo = () => {
   }, [file]);
 
   const closeButton = () => {
-    navigate("/home");
+    navigate("/");
   };
   const updateProfileClickHandler = async (type) => {
     sessionStorage.setItem("change", false);

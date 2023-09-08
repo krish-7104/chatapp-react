@@ -49,6 +49,7 @@ const Home = () => {
   const [photoDisplay, setPhotoDisplay] = useState(false);
   const [android, setAndroid] = useState(false);
   const [searchStart, setSearchStart] = useState(false);
+
   useEffect(() => {
     const getData = () => {
       const unsub = onSnapshot(doc(db, "userChats", userDetails.uid), (doc) => {
@@ -83,7 +84,7 @@ const Home = () => {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (!user) {
-        navigate("/");
+        navigate("/login");
       } else {
         setUserDetails({
           name: user.displayName,
@@ -241,13 +242,10 @@ const Home = () => {
           }
         >
           <div className="chatNavbar" id="chatNavbar">
-            <div className="chatNavTitle" onClick={() => navigate("/home")}>
+            <div className="chatNavTitle" onClick={() => navigate("/")}>
               Chatting App By Krish <small id="beta">(Beta Version)</small>
             </div>
-            <div
-              className="chatNavTitleAndroid"
-              onClick={() => navigate("/home")}
-            >
+            <div className="chatNavTitleAndroid" onClick={() => navigate("/")}>
               Chatting App <small id="beta">Beta Version</small>
             </div>
             <div className="navProfileView" id="navProfileView">

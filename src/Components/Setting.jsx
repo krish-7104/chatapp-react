@@ -31,7 +31,7 @@ const Setting = () => {
     });
   }, [navigate]);
   const openDeveloperPage = () => {
-    window.open("https://krishjotaniya.netlify.app/about", "_blank");
+    window.open("https://krishjotaniya.netlify.app/", "_blank");
   };
   return (
     <section className="settingContainer">
@@ -43,7 +43,7 @@ const Setting = () => {
           </span>{" "}
         </div>
         <ul>
-          <li onClick={() => navigate("/home")}>
+          <li onClick={() => navigate("/")}>
             <span className="settingIcon">
               <IoChevronBackOutline />
             </span>{" "}
@@ -55,7 +55,13 @@ const Setting = () => {
             </span>{" "}
             <span className="settingText">Update Profile</span>
           </li>
-          <li onClick={() => navigate("/feedback")}>
+          <li
+            onClick={() =>
+              window.open(
+                "https://krishjotaniya.netlify.app/contactme?ref=ChatWebApp"
+              )
+            }
+          >
             <span className="settingIcon">
               <IoBugSharp />
             </span>{" "}
